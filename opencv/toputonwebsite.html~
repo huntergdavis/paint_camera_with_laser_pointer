@@ -1,0 +1,26 @@
+Re-writing Scilab Code in C++ 
+<p>
+This should significantly increase our capture and processing speed.
+First, install libcv1 in ubuntu, I like to get the documentation and python bindings as well, and these
+will install libcv1 anyway.
+<code>
+sudo aptitdue install python-cv opencv-doc
+</code>
+
+Now we'll start writing some C code.  As I have the benefit of writing this article after the code, I know that one can render/display 30fps without processing, and can render/display without lag with processing as well (thank you compiled code!).  You can compile opencv code in linux using the following command:
+<code>
+gcc `pkg-config --cflags opencv` `pkg-config --libs opencv` -o MY_PROJECT_RUNME MY_PROJECT.cpp
+</code>
+
+<p>
+
+Well that's simple enough.  The structure of the program has a few changes.
+<ol>
+<li>Program takes first command line argument as the image filter size (try 2-10 for good results)</li>
+<li>Program no longer does image subtraction for a mask over the image, it's direct processing now</li>
+<li>Program is significantly (10x) faster, depending on speed of camera frame grabs</li>
+<li></li>
+</ol>
+
+
+
